@@ -1,4 +1,4 @@
 (executable
  (public_name pot1)
  (name main)
- (libraries pot1))
+ (libraries rotatable))
