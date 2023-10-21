@@ -20,7 +20,10 @@
  (synopsis "Generate random orders of inputs")
  (description
   "A small learning project that generates random orders of given objects.")
- (depends ocaml dune alcotest)
+ (depends
+  ocaml
+  dune
+  (alcotest :with-test))
  (tags
   (topics "to describe" your project)))
 

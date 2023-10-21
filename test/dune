@@ -1,9 +1,9 @@
 (executable
- (name rotatable)
- (libraries alcotest))
+ (name test_rotatable)
+ (libraries rotatable alcotest))
 
 (rule
  (alias runtest)
- (package alcotest)
+ (package pot1)
  (action
-  (run %{dep:rotatable.exe})))
+  (run %{dep:test_rotatable.exe})))
