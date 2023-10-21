@@ -1,2 +1,9 @@
-(test
- (name rotatable))
+(executable
+ (name rotatable)
+ (libraries alcotest))
+
+(rule
+ (alias runtest)
+ (package alcotest)
+ (action
+  (run %{dep:rotatable.exe})))

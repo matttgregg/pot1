@@ -17,9 +17,10 @@
 
 (package
  (name pot1)
- (synopsis "A short synopsis")
- (description "A longer description")
- (depends ocaml dune)
+ (synopsis "Generate random orders of inputs")
+ (description
+  "A small learning project that generates random orders of given objects.")
+ (depends ocaml dune alcotest)
  (tags
   (topics "to describe" your project)))
 
