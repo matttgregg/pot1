@@ -9,6 +9,8 @@ let from_list ?init:(init = [||]) xs =
     { before = []; after = xs; rnd = Random.State.make_self_init()}
   else 
     { before = []; after = xs; rnd = Random.State.make init}
+  
+let as_list { after; before; _ } = after @ before
 
 let push x z = { z with after = x :: z.after}
 let rotate1 z = match z.after with

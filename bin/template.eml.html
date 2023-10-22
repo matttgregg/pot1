@@ -1,0 +1,31 @@
+
+let render request next options chosen =
+  <html>
+  <body>
+    <h1>Spinny McSpinface</h1>
+    <h2>Next is: <%s next %>!</h2>
+    <a href="/next">Next</a>
+    <a href="/putback">Another</a>
+    <a href="/reset">Reset</a>
+    <a href="/clear">Clear</a>
+    <a href="/demo">Demo</a>
+  <h3>So far...</h3>
+  <ol>
+%   !chosen |> List.rev |> List.iter(fun item -> 
+      <li><%s item %>
+%   );
+  </ol>
+  <h3>Left:</h3>
+  <ul>
+%   !options |> Rotatable.as_list |> List.iter(fun item -> 
+      <li><%s item %>
+%   );
+  </ul>
+  <form method="POST" action="/add">
+    <%s! Dream.csrf_tag request %>
+    <label for="item">To Add:</label>
+    <input name="item" autofocus>
+    <input type="submit" value="Add">
+  </form>
+  </body>
+  </html>

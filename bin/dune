@@ -1,4 +1,19 @@
 (executable
  (public_name pot1)
  (name main)
+ (modules main)
  (libraries rotatable))
+
+(executable
+ (public_name pot1_serve)
+ (name server)
+ (modules server template)
+ (libraries rotatable dream)
+ (preprocess
+  (pps lwt_ppx)))
+
+(rule
+ (targets template.ml)
+ (deps template.eml.html)
+ (action
+  (run dream_eml %{deps} --workspace %{workspace_root})))
